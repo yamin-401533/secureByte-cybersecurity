@@ -61,9 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
-
 function startTimer(targetDate, display) {
     const interval = setInterval(function () {
         const now = new Date().getTime();
@@ -505,18 +502,6 @@ const phoneInput = document.getElementById('phone');
         });
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        item.querySelector('.faq-question').addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
-    });
-});
-
-
 document.querySelector('.cta-button').addEventListener('click', function() {
     const successMessage = document.querySelector('.success-message');
     successMessage.classList.add('show');
@@ -525,3 +510,19 @@ document.querySelector('.cta-button').addEventListener('click', function() {
     }, 3000); // Hide the message after 3 seconds
 });
 
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(faqItem => {
+        faqItem.classList.remove('active');
+    });
+    
+    // Toggle the clicked item
+    if (!isActive) {
+        item.classList.add('active');
+    }
+    });
+});
