@@ -1,23 +1,64 @@
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navItems = document.querySelector('.nav-items');
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navItems = document.querySelector('.nav-items');
+    const dropdownButtons = document.querySelectorAll('[data-dropdown] .nav-button');
 
-mobileMenuBtn.addEventListener('click', () => {
-    navItems.classList.toggle('active');
-});
+    // Handle scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar') && navItems.classList.contains('active')) {
-        navItems.classList.remove('active');
-    }
-});
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', () => {
+        navItems.classList.toggle('active');
+        // Change icon
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
 
-// Smooth scroll for enrollment button
-document.querySelector('.enroll-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('.content-right').scrollIntoView({
-        behavior: 'smooth'
+    // Dropdown functionality
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const navItem = button.closest('.nav-item');
+            const wasActive = navItem.classList.contains('active');
+            
+            // Close all dropdowns
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle clicked dropdown if it wasn't active
+            if (!wasActive) {
+                navItem.classList.add('active');
+            }
+
+            e.stopPropagation();
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-item')) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navItems.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
 });
 
