@@ -2215,7 +2215,32 @@ h1 {
     color: #4B5563;
     font-size: 0.875rem;
 }
+.mentor-info {
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+}
 @media (max-width: 768px) {
     .mentor-image {
         width: 150px;
@@ -2229,7 +2254,6 @@ h1 {
         height: 200px;
     }
 }
-
 /* CTA Section */
 .crc {
     max-width: 700px;
