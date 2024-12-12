@@ -62,15 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Enhanced navbar shadow on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 0) {
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
+
 
 function startTimer(targetDate, display) {
     const interval = setInterval(function () {
