@@ -61,35 +61,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-function startTimer(targetDate, display) {
-    const interval = setInterval(function () {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
 
-        if (distance < 0) {
-            clearInterval(interval);
-            display.textContent = "00:00:00";
-            return;
+
+class CountdownTimer {
+            constructor(targetDate) {
+                this.targetDate = new Date(targetDate).getTime();
+                this.daysEl = document.getElementById('days');
+                this.hoursEl = document.getElementById('hours');
+                this.minutesEl = document.getElementById('minutes');
+                this.secondsEl = document.getElementById('seconds');
+            }
+
+            start() {
+                this.update();
+                setInterval(() => this.update(), 1000);
+            }
+
+            update() {
+                const now = new Date().getTime();
+                const distance = this.targetDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                this.animateUpdate(this.daysEl, this.formatTime(days));
+                this.animateUpdate(this.hoursEl, this.formatTime(hours));
+                this.animateUpdate(this.minutesEl, this.formatTime(minutes));
+                this.animateUpdate(this.secondsEl, this.formatTime(seconds));
+            }
+
+            animateUpdate(element, value) {
+                if (element.textContent !== value) {
+                    element.classList.add('flip');
+                    element.textContent = value;
+                    setTimeout(() => element.classList.remove('flip'), 500);
+                }
+            }
+
+            formatTime(value) {
+                return value < 10 ? `0${value}` : value;
+            }
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        display.innerHTML = 
-            (days < 10 ? "0" + days : days) + "d " + 
-            (hours < 10 ? "0" + hours : hours) + "h " + 
-            (minutes < 10 ? "0" + minutes : minutes) + "m " + 
-            (seconds < 10 ? "0" + seconds : seconds) + "s";
-    }, 1000);
-}
-
-window.onload = function () {
-    const targetDate = new Date("Jan 1, 2025 00:00:00").getTime();
-    const display = document.querySelector('#timer');
-    startTimer(targetDate, display);
-};
+        document.addEventListener('DOMContentLoaded', () => {
+            const timer = new CountdownTimer('2025-01-01T00:00:00');
+            timer.start();
+        });
 
 
 
