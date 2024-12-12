@@ -2,7 +2,7 @@
     /* Core Brand Colors */
     --primary-color: #14b8a6;      /* Primary color */
     --primary-light: #5eead4;      /* Lighter primary color */
-    --primary-dark: #030712;       /* Darker primary color */
+    --primary-dark: #081203;       /* Darker primary color */
     --secondary-color: #0D7C66;    /* Secondary color */
     --secondary-light: #41B3A2;    /* Lighter secondary color */
     --secondary-dark: #243642;     /* Darker secondary color */
@@ -508,7 +508,7 @@ html {
 }
 
 .stat-card {
-    background: var(--light-bg-hover);
+    background: var(--accent-light);
     color: var(--primary-dark);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
@@ -565,6 +565,7 @@ html {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transform: skew(-5deg);
+    border: 1px solid rgba(0, 22, 16, 0.15);
 }
 
 .countdown-value {
