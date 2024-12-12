@@ -223,7 +223,6 @@ html {
     transform: translateY(10px);
     transition: var(--transition);
     padding: 0.5rem;
-    
 }
 
 .nav-item:hover .dropdown-menu {
