@@ -1,14 +1,14 @@
 :root {
     /* Core Brand Colors */
-    --primary-color: #432E54;      /* Rich purple */
-    --primary-light: #634876;      /* Lighter purple for hover states */
-    --primary-dark: #2A1D36;       /* Darker purple for active states */
-    --secondary-color: #AB4459;    /* Deep red */
-    --secondary-light: #C66276;    /* Lighter red for hover states */
-    --secondary-dark: #8A3647;     /* Darker red for active states */
-    --accent-color: #4B4376;       /* Dark violet */
-    --accent-light: #655D94;       /* Lighter violet for hover states */
-    --accent-dark: #363154;        /* Darker violet for active states */
+    --primary-color: #14b8a6;      /* Primary color */
+    --primary-light: #5eead4;      /* Lighter primary color */
+    --primary-dark: #030712;       /* Darker primary color */
+    --secondary-color: #0D7C66;    /* Secondary color */
+    --secondary-light: #41B3A2;    /* Lighter secondary color */
+    --secondary-dark: #243642;     /* Darker secondary color */
+    --accent-color: #387478;       /* Accent color */
+    --accent-light: #BDE8CA;       /* Lighter accent color */
+    --accent-dark: #243642;        /* Darker accent color */
 
     /* Text Colors */
     --text-color: #18181b;         /* Primary text */
@@ -17,7 +17,7 @@
     --text-bright: #111111;        /* High contrast text */
 
     /* Background Colors */
-    --light-bg: #faf5ff;           /* Light purple tint */
+    --light-bg: #E2F1E7;           /* Light background */
     --light-bg-hover: #f3e8ff;     /* Hover state for light bg */
     --white: #ffffff;
     --off-white: #F9FAFB;
@@ -472,7 +472,7 @@ html {
 }
 
 .main-title {
-    font-size: var(--text-4xl);
+    font-size:50px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -633,7 +633,7 @@ html {
     position: sticky;
     top: var(--spacing-lg);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-    margin-top: var(--spacing-lg);
+    margin-top: 280px;
     height: fit-content;
 }
 
@@ -2847,7 +2847,7 @@ h1 {
 /* footer */
 
 .footer {
-    background-color: var(--primary-color);
+    background-color: #243642;
     color: white;
     padding: 3rem 2rem;
 }
