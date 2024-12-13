@@ -1330,7 +1330,7 @@ html {
     .primary-btn, .secondary-btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
-        width: 90%;
+/*         width: 90%; */
     }
 
     .content-right {
@@ -1341,7 +1341,7 @@ html {
 
     .countdown-section {
         padding: 0.5rem;
-        width: 90%;
+/*         width: 90%; */
     }
 
     .countdown-item {
