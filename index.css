@@ -1302,9 +1302,9 @@ html {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     } 
-    .stat-card{
+/*     .stat-card{
         width: 90%;
-    }
+    } */
     .stat-item {
         padding: 1rem;
         
@@ -1336,7 +1336,7 @@ html {
     .content-right {
         margin-top: 1rem;
         padding: 0.9rem;
-        width: 90%;
+/*         width: 90%; */
     }
 
     .countdown-section {
@@ -2791,7 +2791,7 @@ h1 {
 
     .service-card {
         padding: 1rem;
-        width: 80%;
+        width: 97%;
     }
 
     .service-icon {
